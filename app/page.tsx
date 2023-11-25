@@ -4,11 +4,11 @@ import { TodoItem } from './componant/TodoItem'
 
 async function toggleTodo(id: string, complete: boolean) {
   'use server'
-  await prisma.todos.update({ where: { id }, data: { complete } })
+  await prisma.todo.update({ where: { id }, data: { complete } })
 }
 
 export default async function Home() {
-  const todos = await prisma.todos.findMany()
+  const todos = await prisma.todo.findMany()
 
   return (
     <>
