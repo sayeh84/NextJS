@@ -9,7 +9,7 @@ async function create(data: FormData) {
   if (typeof title !== 'string' || title.length === 0) {
     throw new Error('Invalid Title')
   }
-  await prisma.todos?.create({ data: { title: title, complete: true } })
+  // await prisma.todos?.create({ data: { title: title, complete: true } })
   redirect('/')
 }
 
