@@ -9,8 +9,9 @@ export async function GET(request: Request) {
 
   try {
     if (!petName || !ownerName) throw new Error("Pet and owner names required");
-    await sql`INSERT INTO Pets (Name, Owner) VALUES (${"petName"}, ${"ownerName"});`;
+    await sql`INSERT INTO Pets (Name, Owner) VALUES ("bb", "mm");`;
   } catch (error) {
+    NextResponse.json("data");
     return NextResponse.json({ request }, { status: 500 });
   }
 
