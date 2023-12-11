@@ -9,7 +9,7 @@ async function toggleTodo(id: string, complete: boolean) {
 }
 
 export default async function Home() {
-  //  const todos = await prisma.todo?.findMany()
+  //const todos = await prisma.todo?.findMany()
   const [isTouched, setIsTouched] = useState(false)
   const handleTouchStart = () => {
     setIsTouched(true)
