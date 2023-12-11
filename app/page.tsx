@@ -12,7 +12,7 @@ export default async function Home() {
 
   return (
     <div>
-      test2228
+      test2229
       <header className="home">
         <h1>Todo</h1>
         <Link className="border" href="/new">
