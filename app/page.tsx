@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { useState } from 'react'
 import { prisma } from './db'
 import { TodoItem } from './componant/TodoItem'
 
@@ -8,16 +9,39 @@ async function toggleTodo(id: string, complete: boolean) {
 }
 
 export default async function Home() {
-  // const todos = await prisma.todo?.findMany()
+  const todos = await prisma.todo?.findMany()
+  const [isTouched, setIsTouched] = useState(false)
+  const handleTouchStart = () => {
+    setIsTouched(true)
+  }
 
+  const handleTouchEnd = () => {
+    setIsTouched(false)
+  }
   return (
-    <>
+    <div
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      className={` ${isTouched ? 'bg-red' : 'bg-white'}`}
+    >
+      {' '}
+      test222
       <header className="home">
         <h1>Todo</h1>
         <Link className="border" href="/new">
           New
         </Link>
       </header>
-    </>
+      {todos &&
+        todos?.map((item) => (
+          <TodoItem
+            id={item.id}
+            key={item.id}
+            title={item.title}
+            complete={item.complete}
+            toggleTodo={toggleTodo}
+          />
+        ))}
+    </div>
   )
 }
