@@ -20,7 +20,9 @@ export function TodoItem({ title, complete, toggleTodo }: TodoItemProps) {
     <div
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
-      className={` ${isTouched ? 'bg-red' : 'bg-white'}`}
+      className={` bg-red-600 border ${
+        isTouched ? 'bg-lime-400 border w-[3rem]' : 'bg-white'
+      }`}
     >
       <li className=" flex gap-1 items-center">
         <input

@@ -12,8 +12,7 @@ export default async function Home() {
 
   return (
     <div>
-      {' '}
-      test222
+      test2228
       <header className="home">
         <h1>Todo</h1>
         <Link className="border" href="/new">
