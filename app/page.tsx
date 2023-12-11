@@ -9,7 +9,7 @@ async function toggleTodo(id: string, complete: boolean) {
 }
 
 export default async function Home() {
-  const todos = await prisma.todo?.findMany()
+  //  const todos = await prisma.todo?.findMany()
   const [isTouched, setIsTouched] = useState(false)
   const handleTouchStart = () => {
     setIsTouched(true)
@@ -32,16 +32,6 @@ export default async function Home() {
           New
         </Link>
       </header>
-      {todos &&
-        todos?.map((item) => (
-          <TodoItem
-            id={item.id}
-            key={item.id}
-            title={item.title}
-            complete={item.complete}
-            toggleTodo={toggleTodo}
-          />
-        ))}
     </div>
   )
 }
