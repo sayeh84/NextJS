@@ -1,29 +1,17 @@
 import Link from 'next/link'
-import { useState } from 'react'
 import { prisma } from './db'
 import { TodoItem } from './componant/TodoItem'
 
 async function toggleTodo(id: string, complete: boolean) {
-  'use server'
-  await prisma.todo?.update({ where: { id }, data: { complete } })
+  // 'use server'
+  // await prisma.todo?.update({ where: { id }, data: { complete } })
 }
 
 export default async function Home() {
   //const todos = await prisma.todo?.findMany()
-  const [isTouched, setIsTouched] = useState(false)
-  const handleTouchStart = () => {
-    setIsTouched(true)
-  }
 
-  const handleTouchEnd = () => {
-    setIsTouched(false)
-  }
   return (
-    <div
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
-      className={` ${isTouched ? 'bg-red' : 'bg-white'}`}
-    >
+    <div>
       {' '}
       test222
       <header className="home">
@@ -32,6 +20,7 @@ export default async function Home() {
           New
         </Link>
       </header>
+      <TodoItem title="test" complete />
     </div>
   )
 }
