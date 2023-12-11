@@ -16,23 +16,7 @@ export function TodoItem({ id, title, complete, toggleTodo }: TodoItemProps) {
   const handleTouchEnd = () => {
     setIsTouched(false)
   }
-  const [hasFocus, setHasFocus] = useState(false)
-  const [touch, setTouchs] = useState(false)
-  const onToggleFocus = (event: React.FocusEvent) => {
-    if (event.type === 'focus') {
-      setHasFocus(true)
-    } else {
-      setHasFocus(false)
-    }
-  }
 
-  const onTouch = (event: React.FocusEvent) => {
-    if (event.type === 'touchstart') {
-      setTouchs(true)
-    } else if (event.type === 'touchEnd') {
-      setHasFocus(false)
-    }
-  }
   return (
     <div
       onTouchStart={handleTouchStart}
