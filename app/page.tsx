@@ -8,7 +8,7 @@ async function toggleTodo(id: string, complete: boolean) {
 }
 
 export default async function Home() {
-  const todos = await prisma.todo?.findMany()
+  // const todos = await prisma.todo?.findMany()
 
   return (
     <>
@@ -18,17 +18,6 @@ export default async function Home() {
           New
         </Link>
       </header>
-
-      {todos &&
-        todos?.map((item) => (
-          <TodoItem
-            id={item.id}
-            key={item.id}
-            title={item.title}
-            complete={item.complete}
-            toggleTodo={toggleTodo}
-          />
-        ))}
     </>
   )
 }
